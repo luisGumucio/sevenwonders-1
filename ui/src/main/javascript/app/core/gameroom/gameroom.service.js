@@ -2,8 +2,8 @@
 
 angular.
     module('sevenWonders.core.gameroom').
-    factory('GameRoom', ['Restangular', '$cookies', '$q',
-        function (Restangular, $cookies, $q) {
+    factory('GameRoom', ['Restangular', '$cookies', '$q', '$websocket',
+        function (Restangular, $cookies, $q, $websocket) {
             return {
                 gameroom: function (gameroom) {
                     return $q(function (resolve, reject) {

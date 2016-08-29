@@ -19,17 +19,18 @@ import java.util.Random;
  */
 public class GameRoom {
     public static final int NUMBER_OF_AGES = 3;
-
+    private String name;
     private WonderProvider wonderProvider;
     private CardProvider cardProvider;
     private List<PlayerModel> players;
     private int maxPlayers;
 
-    public GameRoom(int maxPlayers) {
+    public GameRoom(String name, int maxPlayers) {
         wonderProvider = new WonderProvider();
         cardProvider = new CardProvider();
         players = new ArrayList<>();
         this.maxPlayers = maxPlayers;
+        this.name = name;
     }
 
     public int getMaxPlayers() {
@@ -68,7 +69,7 @@ public class GameRoom {
             StoragePoint storagePoint = new StoragePoint();
             Storage storage = new Storage();
             City city = new City(currentWonder, storagePoint, storage);
-            Player player = new Player(item.getuserName(), city);
+            Player player = new Player(item.getUserName(), city);
             gamePlayers.add(player);
         });
 
@@ -87,5 +88,13 @@ public class GameRoom {
         return builder.setPlayers(initPlayers)
                       .setDeck(new Deck(cardProvider.getDefault()), NUMBER_OF_AGES)
                       .createGame();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

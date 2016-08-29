@@ -8,7 +8,8 @@ package org.fundacionjala.sevenwonders.core.rest;
  * Created by Juan Manuel Barahona on 05/08/2016.
  */
 public class PlayerModel {
-    private String name;
+
+    private String userName;
     private int roomId;
 
     public int getRoomId() {
@@ -19,11 +20,11 @@ public class PlayerModel {
         this.roomId = roomId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
